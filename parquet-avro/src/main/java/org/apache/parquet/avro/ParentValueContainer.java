@@ -23,6 +23,7 @@ import org.apache.avro.LogicalType;
 import org.apache.avro.Schema;
 import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericEnumSymbol;
+import org.apache.avro.generic.GenericFixed;
 import org.apache.avro.generic.IndexedRecord;
 import java.nio.ByteBuffer;
 import java.util.Collection;
@@ -196,7 +197,7 @@ abstract class ParentValueContainer {
           @Override
           public void add(Object value) {
             parent.add(conversion.fromFixed(
-                (GenericData.Fixed) value, schema, logicalType));
+                (GenericFixed) value, schema, logicalType));
           }
         };
       case RECORD:
